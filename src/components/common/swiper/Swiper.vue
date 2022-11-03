@@ -35,12 +35,12 @@ export default {
   props: {
     moveRatio: {
       type: Number,
-      default: 0.2
+      default: 0.4
     },
     animDuration: {
       type: Number,
-      default: 300
-    }
+      default: 200
+    },
   },
 
   mounted() {},

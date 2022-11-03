@@ -22,7 +22,8 @@ export default {
   data () {
     return {
       loadCheck: false,
-      isLoad: false
+      isLoad: false,
+      num: 0,
     }
   },
   props: {
@@ -44,13 +45,19 @@ export default {
       }
     },
     slideLoadOn() {
-      this.$refs.swiper.slideOn();
+      if (this.num < 1) {
+        this.$refs.swiper.slideOn();
+        this.num++
+      }
     },
     // 加载banner图片
     imageLoad() {
-      if (!this.isLoad) {
-        this.$emit('swiperimageload')
-        this.isLoad = true
+      if (this.num < 1) {
+        if (!this.isLoad) {
+          this.$emit('swiperimageload')
+          this.isLoad = true
+        }
+        this.num++
       }
     }
   },
